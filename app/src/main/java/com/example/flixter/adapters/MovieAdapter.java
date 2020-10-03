@@ -1,6 +1,7 @@
 package com.example.flixter.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,8 +16,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.flixter.DetailActivity;
 import com.example.flixter.R;
 import com.example.flixter.models.Movie;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -137,8 +141,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                 @Override
                 public void onClick(View view) {
 
-                    // 2. Navigate to a new activity on tap.
-                    Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
+                    // 2. Navigate to a new activity on tap using an intent.
+                    //Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(context, DetailActivity.class);
+                    //want to pass data
+                    //recall key-value pairs
+                    //i.putExtra("title", movie.getTitle()); //retreive the data corresponding to the key in DetailActivity
+                    i.putExtra("movie", Parcels.wrap(movie));
+
+                    context.startActivity(i);
 
                 }
             });
