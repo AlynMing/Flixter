@@ -95,6 +95,7 @@ public class DetailActivity extends YouTubeBaseActivity {
 
     }
 
+    //does basically the same thing as the above commented, but made more generic
     private void initializeYoutube(final String youtubeKey) {
         youTubePlayerView.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
             @Override
